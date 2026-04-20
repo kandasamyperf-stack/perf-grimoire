@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mcp-latency-profiler"
+version = "0.1.0"
+description = "Async latency profiler for MCP tool calls in agentic AI pipelines"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["mcp", "performance", "profiling", "agents", "latency", "observability"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Monitoring",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "bandit>=1.7",
+    "pip-audit>=2.7",
+]
+
+[project.scripts]
+mcp-latency-profiler = "mcp_latency_profiler.__main__:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.bandit]
+skips = ["B101"]  # allow assert in tests
