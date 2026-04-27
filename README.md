@@ -3,7 +3,8 @@
 > The arts of performance engineering for agentic AI, LLM inference, and cloud infrastructure scalability, resilience, and observability.
 
 A collection of fully functional performance engineering projects focused on
-agentic AI pipelines, LLM observability, and cloud scalability.
+agentic AI performance architecture, LLM performance, MCP, observability,Chaos Engineering
+and cloud scalability.
 
 Each topic is a standalone, runnable project with tests, security scans, and CI/CD.
 
