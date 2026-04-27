@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "agent-loop-cost-guardian"
+version = "1.0.0"
+description = "Monitor, budget, and kill runaway agentic AI loops before they burn your token budget"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "bandit>=1.7",
+    "pip-audit>=2.6",
+]
+
+[project.scripts]
+cost-guardian = "agent_cost_guardian.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["agent_cost_guardian/tests"]
+addopts = "--tb=short -v"
+
+[tool.bandit]
+exclude_dirs = ["agent_cost_guardian/tests"]
+skips = []
