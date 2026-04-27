@@ -14,6 +14,7 @@ Each topic is a standalone, runnable project with tests, security scans, and CI/
 | # | Project | Focus | Goal |
 |---|---------|-------|------|
 | 01 | [MCP Tool Call Latency Profiler](./01-mcp-latency-profiler/) | p50/p95/p99 latency per MCP tool | Instrument every MCP tool call in an agentic pipeline, measure individual latency with p50/p95/p99 percentiles, identify bottleneck tools slowing down agent loops, and export a flame-style terminal dashboard plus JSON/CSV/Markdown reports for CI gating and observability dashboards. |
+| 02 | [Agent Loop Cost Guardian](https://github.com/kandasamyperf-stack/perf-grimoire/blob/main/02-agent-loop-cost-guardian) | Token, cost & iteration budgets | Wrap any agentic loop with hard kill limits on token spend, USD cost, iteration count, and retry storms. Emits early warnings at 80% of any budget and terminates the loop instantly when a limit is breached — before runaway costs hit your bill. |
 
 ---
 
