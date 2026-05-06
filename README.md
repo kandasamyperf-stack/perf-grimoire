@@ -16,7 +16,19 @@ Each topic is a standalone, runnable project with tests, security scans, and CI/
 |---|---------|-------|------|
 | 01 | [MCP Tool Call Latency Profiler](./01-mcp-latency-profiler/) | p50/p95/p99 latency per MCP tool | Instrument every MCP tool call in an agentic pipeline, measure individual latency with p50/p95/p99 percentiles, identify bottleneck tools slowing down agent loops, and export a flame-style terminal dashboard plus JSON/CSV/Markdown reports for CI gating and observability dashboards. |
 | 02 | [Agent Loop Cost Guardian](https://github.com/kandasamyperf-stack/perf-grimoire/blob/main/02-agent-loop-cost-guardian) | Token, cost & iteration budgets | Wrap any agentic loop with hard kill limits on token spend, USD cost, iteration count, and retry storms. Emits early warnings at 80% of any budget and terminates the loop instantly when a limit is breached — before runaway costs hit your bill. |
-| 03 | [mcp-load-forge](./03-mcp-load-forge/) | Forge your MCP server under real load — cold start, ramp-up, sustained, and spike phases |
+| 03 | [mcp-load-forge](./03-mcp-load-forge/) | Forge your MCP server under real load — cold start, ramp-up, sustained, and spike phases |Most teams deploy MCP servers without ever testing cold start latency,
+concurrent tool call throughput, or what happens when agent traffic spikes 2×.
+`mcp-load-forge` fills that gap.
+
+It runs four load phases and tells you exactly where your MCP server breaks —
+before your agents find out the hard way.
+
+| Phase | What it tests |
+|---|---|
+| Cold start | First-connection overhead on a fresh MCP server |
+| Ramp up | Latency creep as virtual users grow |
+| Sustained | Stability under peak concurrent agent load |
+| Spike | Breaking point at N× beyond peak |
 
 ---
 
