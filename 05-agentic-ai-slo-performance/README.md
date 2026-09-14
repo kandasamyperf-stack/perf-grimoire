@@ -35,5 +35,5 @@ in how to instrument it yet to write it up properly.
 ## If you're starting from zero
 
 Pick one dimension and give it a sprint. Trying to stand up all five at once usually means
-none of them get finished. I'd start with Task Completion Rate — it's the one most likely
+none of them get finished. I'd start with average token count per traces it's the one most likely
 to already be broken without anyone noticing.
